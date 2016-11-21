@@ -1,0 +1,25 @@
+import java.util.Scanner;
+
+public class WATCH {
+  public static void main(String[]args) {
+    Thread thread = new Thread() {
+      public void run() {
+        Scanner timer = new Scanner(System.in);
+        int BaseTime = -1;
+        
+        System.out.print("Count down seconds: ");
+        int secs = timer.nextInt();
+        
+        while (secs > BaseTime) {
+          System.out.println(secs--);
+          try {
+          Thread.sleep(1000);
+          } catch (Exception e) {
+            e.printStackTrace();
+          }
+        }
+      }
+    };
+    thread.start();
+  };
+}
